@@ -28,14 +28,17 @@ resource "null_resource" "default" {
   provisioner "local-exec" {
     command = "env"
 
+
     environment {
-      EMAIL_FROM     = "${var.from}"
-      EMAIL_SUBJECT  = "${local.subject}"
-      EMAIL_BODY     = "${local.body}"
-      EMAIL_PORT     = "${var.port}"
-      EMAIL_HOST     = "${var.host}"
-      EMAIL_USERNAME = "${var.username}"
-      EMAIL_PASSWORD = "${var.password}"
+      variables = {
+        EMAIL_FROM     = var.from
+        EMAIL_SUBJECT  = local.subject
+        EMAIL_BODY     = local.body
+        EMAIL_PORT     = var.port
+        EMAIL_HOST     = var.host
+        EMAIL_USERNAME = var.username
+        EMAIL_PASSWORD = var.password
+      }
     }
 
     on_failure = "fail"
