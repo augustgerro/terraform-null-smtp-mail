@@ -9,7 +9,6 @@ variable "from" {
 
 variable "to" {
   description = "Email recipients"
-  type        = list
 }
 
 variable "subject" {
@@ -22,12 +21,10 @@ variable "body" {
 
 variable "username" {
   description = "Username to authenticate with the SMTP server"
-  type        = string
 }
 
 variable "password" {
   description = "Password to authenticate with the SMTP server"
-  type        = string
 }
 
 variable "host" {
