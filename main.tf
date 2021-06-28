@@ -28,9 +28,7 @@ resource "null_resource" "default" {
   provisioner "local-exec" {
     command = "env"
 
-
-    environment {
-      variables = {
+    environment = {
         EMAIL_FROM     = var.from
         EMAIL_SUBJECT  = local.subject
         EMAIL_BODY     = local.body
@@ -38,7 +36,6 @@ resource "null_resource" "default" {
         EMAIL_HOST     = var.host
         EMAIL_USERNAME = var.username
         EMAIL_PASSWORD = var.password
-      }
     }
 
     on_failure = "fail"
